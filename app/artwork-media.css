@@ -1,0 +1,70 @@
+.artwork-media {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: #232321;
+}
+
+.artwork-media-source {
+  position: absolute;
+  max-width: none;
+  user-select: none;
+  pointer-events: none;
+  image-rendering: auto;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.board-media-1 .artwork-media-source { width: 400%; height: 300%; object-fit: fill; }
+.board-media-2 .artwork-media-source { width: 200%; height: 500%; object-fit: fill; }
+
+.board-media-1.crop-c0-r0 .artwork-media-source { left: 0; top: 0; }
+.board-media-1.crop-c1-r0 .artwork-media-source { left: -100%; top: 0; }
+.board-media-1.crop-c2-r0 .artwork-media-source { left: -200%; top: 0; }
+.board-media-1.crop-c3-r0 .artwork-media-source { left: -300%; top: 0; }
+.board-media-1.crop-c0-r1 .artwork-media-source { left: 0; top: -100%; }
+.board-media-1.crop-c1-r1 .artwork-media-source { left: -100%; top: -100%; }
+.board-media-1.crop-c2-r1 .artwork-media-source { left: -200%; top: -100%; }
+.board-media-1.crop-c3-r1 .artwork-media-source { left: -300%; top: -100%; }
+.board-media-1.crop-c0-r2 .artwork-media-source { left: 0; top: -200%; }
+.board-media-1.crop-c1-r2 .artwork-media-source { left: -100%; top: -200%; }
+.board-media-1.crop-c2-r2 .artwork-media-source { left: -200%; top: -200%; }
+.board-media-1.crop-c3-r2 .artwork-media-source { left: -300%; top: -200%; }
+
+.board-media-2.crop2-c0-r0 .artwork-media-source { left: 0; top: 0; }
+.board-media-2.crop2-c1-r0 .artwork-media-source { left: -100%; top: 0; }
+.board-media-2.crop2-c0-r1 .artwork-media-source { left: 0; top: -100%; }
+.board-media-2.crop2-c1-r1 .artwork-media-source { left: -100%; top: -100%; }
+.board-media-2.crop2-c0-r2 .artwork-media-source { left: 0; top: -200%; }
+.board-media-2.crop2-c1-r2 .artwork-media-source { left: -100%; top: -200%; }
+.board-media-2.crop2-c0-r3 .artwork-media-source { left: 0; top: -300%; }
+.board-media-2.crop2-c1-r3 .artwork-media-source { left: -100%; top: -300%; }
+.board-media-2.crop2-c0-r4 .artwork-media-source { left: 0; top: -400%; }
+.board-media-2.crop2-c1-r4 .artwork-media-source { left: -100%; top: -400%; }
+
+.artwork-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 68%, rgba(0,0,0,.12));
+  z-index: 1;
+}
+
+.artwork-media .status-pill,
+.artwork-media .view-label {
+  z-index: 2;
+}
+
+.art-card .artwork-media,
+.archive-image.artwork-media,
+.collection-tile-image.artwork-media {
+  transition: transform .45s cubic-bezier(.2,.7,.2,1), filter .45s ease;
+}
+
+.art-card:hover .artwork-media,
+.archive-card:hover .artwork-media,
+.collection-tile:hover .artwork-media {
+  transform: scale(.995);
+  filter: saturate(1.025) contrast(1.015);
+}
