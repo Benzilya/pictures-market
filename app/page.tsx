@@ -11,7 +11,7 @@ export default function HomePage() {
           <span className="brand"><span>ILIANO</span><span>BABENCHINI</span></span>
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <a href="#collection">Collection</a>
+          <a href="/collection">Collection</a>
           <a href="#artist">About</a>
           <a href="#designers">Designers</a>
           <a href="#contact">Contact</a>
@@ -28,28 +28,28 @@ export default function HomePage() {
             Each work exists as a single original.
           </p>
           <div className="hero-actions">
-            <a className="button button-dark" href="#collection">Explore collection</a>
+            <a className="button button-dark" href="/collection">Explore collection</a>
             <a className="button button-ghost" href="#contact">Request a private selection</a>
           </div>
         </div>
-        <div className="hero-art real-art board-1 crop-c0-r0" role="img" aria-label="Respiro di luce by Iliano Babenchini">
+        <a className="hero-art real-art board-1 crop-c0-r0" href="/artwork/respiro-di-luce" aria-label="Open Respiro di luce by Iliano Babenchini">
           <div className="hero-caption">
             <span>Respiro di luce · 2023</span>
             <span>80 × 100 cm</span>
           </div>
-        </div>
+        </a>
       </section>
 
       <section id="collection" className="collection section-pad">
         <div className="section-heading">
           <p className="eyebrow">SELECTED WORKS</p>
           <h2>Original works, presented with room to breathe.</h2>
-          <a href="#full-collection">View all works →</a>
+          <a href="/collection">View all works →</a>
         </div>
 
         <div className="art-grid">
           {featured.map((artwork, index) => (
-            <article className={`art-card art-card-${index + 1}`} key={artwork.slug}>
+            <a className={`art-card art-card-${index + 1}`} href={`/artwork/${artwork.slug}`} key={artwork.slug}>
               <div className={`artwork-surface real-art board-${artwork.board} ${artwork.crop}`}>
                 <span className="view-label">OPEN</span>
                 <span className="status-pill">{artwork.status}</span>
@@ -61,7 +61,7 @@ export default function HomePage() {
                 </div>
                 <p className="price">{artwork.price}</p>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </section>
@@ -76,7 +76,7 @@ export default function HomePage() {
         </div>
         <div className="archive-grid">
           {artworks.map((artwork) => (
-            <article className="archive-card" key={artwork.slug}>
+            <a className="archive-card" href={`/artwork/${artwork.slug}`} key={artwork.slug}>
               <div className={`archive-image real-art board-${artwork.board} ${artwork.crop}`}>
                 <span className="status-pill">{artwork.status}</span>
               </div>
@@ -88,7 +88,7 @@ export default function HomePage() {
                 </div>
                 <strong>{artwork.price}</strong>
               </div>
-            </article>
+            </a>
           ))}
         </div>
         <p className="source-note">Collection previews use the supplied studio presentation boards during the media pass. Individual high-resolution files will replace board crops as they become available.</p>
@@ -105,9 +105,7 @@ export default function HomePage() {
             Based in Milan, Iliano Babenchini explores the relationship between human presence, material memory
             and contemporary interiors. His paintings combine restrained colour, tactile surfaces and a sense of pause.
           </p>
-          <blockquote>
-            “A painting should not fill an empty wall. It should change the atmosphere of the room.”
-          </blockquote>
+          <blockquote>“A painting should not fill an empty wall. It should change the atmosphere of the room.”</blockquote>
           <a className="text-link" href="#contact">Discover the studio →</a>
         </div>
       </section>
@@ -127,10 +125,7 @@ export default function HomePage() {
       <section id="designers" className="designers section-pad dark-section">
         <p className="eyebrow">FOR DESIGNERS & COLLECTORS</p>
         <h2>Art selected for the space, not added after it.</h2>
-        <p>
-          Private selections, interior previews, high-resolution assets and project reservations are available for
-          architects, interior designers and collectors.
-        </p>
+        <p>Private selections, interior previews, high-resolution assets and project reservations are available for architects, interior designers and collectors.</p>
         <a className="button button-light" href="#contact">Discuss a project</a>
       </section>
 
@@ -152,7 +147,7 @@ export default function HomePage() {
           <span className="brand"><span>ILIANO</span><span>BABENCHINI</span></span>
         </div>
         <p>Contemporary Art · Milano</p>
-        <p className="footer-note">Private Museum · v0.6.0</p>
+        <p className="footer-note">Private Museum · v0.7.0</p>
       </footer>
     </main>
   );
