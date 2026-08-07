@@ -4,7 +4,7 @@ Premium multilingual portfolio and art-commerce website for contemporary artist 
 
 ## Status
 
-Working Next.js prototype with a responsive premium homepage, expanded artwork catalogue and first brand-identity pass.
+Release-candidate Next.js prototype with premium homepage, 22-work catalogue, dedicated artwork pages, filters, inquiry flow and brand identity.
 
 ## Stack
 
@@ -66,31 +66,45 @@ npm run build
 npm start
 ```
 
-## Current UI
+## Current routes
 
-The homepage currently includes:
+- `/` — premium editorial homepage
+- `/collection` — complete catalogue with series and availability filters
+- `/artwork/[slug]` — individual artwork pages with metadata, related works and inquiry flow
+- `/sitemap.xml` — generated artwork sitemap
+- `/robots.txt` — crawler configuration
+
+## Current UI
 
 - premium sticky navigation with IB monogram
 - editorial hero section
 - selected works gallery
 - 22-work current collection
+- dedicated artwork detail pages
+- series and availability filtering
 - artwork titles, years, dimensions, series and pricing
 - artist statement section
 - authenticity / certificate section
 - designer/collector service section
-- inquiry CTA
-- responsive mobile layout
-- favicon and expanded page metadata
+- acquisition inquiry form
+- related-artwork recommendations
+- responsive mobile layouts
+- premium 404 page
+- favicon, metadata, JSON-LD artwork schema, sitemap and robots metadata
 
 ## Artwork media
 
-Both supplied presentation boards are now integrated into the catalogue. Board crops are used as temporary web previews; individual high-resolution artwork files can replace them later without changing catalogue metadata or layout code.
+Both supplied presentation boards are integrated into the catalogue. Board crops are used as temporary web previews; individual high-resolution artwork files can replace them later without changing catalogue metadata or layout code.
 
 ## Brand assets
 
 - `public/brand/iliano-babenchini-mark.svg` — IB monogram
 - `public/brand/certificate-template.svg` — certificate of authenticity
 - `app/icon.svg` — favicon/app icon
+
+## Before public launch
+
+Replace the placeholder studio email (`studio@example.com`) and the placeholder production origin (`https://example.com`) used for metadata, sitemap and robots configuration.
 
 ## Brand direction
 
