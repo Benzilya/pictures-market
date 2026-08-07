@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.8.0 — Final QA + Launch
+
+- Added shared responsive navigation across homepage, catalogue and artwork pages.
+- Added mobile menu and IT / EN / RU language switcher.
+- Added localized Italian and Russian homepage experiences.
+- Replaced hard-coded placeholder email behavior with environment-driven inquiry handling.
+- Added safe preview behavior when no studio email is configured.
+- Replaced hard-coded production origin with `NEXT_PUBLIC_SITE_URL`.
+- Added localized URLs to sitemap and language alternates to metadata.
+- Added `.env.example` for launch configuration.
+- Added GitHub Actions typecheck and production-build verification.
+- Finalized homepage inquiry flow and release version label.
+- Updated launch documentation.
+
 ## v0.7.0 — Release Candidate
 
 - Added a dedicated `/collection` catalogue route.
