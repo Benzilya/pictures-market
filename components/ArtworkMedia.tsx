@@ -9,10 +9,12 @@ type Props = {
 };
 
 export default function ArtworkMedia({ artwork, className = "", showStatus = false, showViewLabel = false, eager = false }: Props) {
-  const src = artwork.board === 1 ? "/artworks/collection-board.jpg" : "/artworks/collection-board-2.svg";
+  const directAsset = artwork.slug === "respiro-di-luce" ? "/artworks/respiro-di-luce.svg" : null;
+  const src = directAsset || (artwork.board === 1 ? "/artworks/collection-board.jpg" : "/artworks/collection-board-2.svg");
+  const modeClass = directAsset ? "direct-artwork" : `board-media-${artwork.board} ${artwork.crop}`;
 
   return (
-    <div className={`artwork-media board-media-${artwork.board} ${artwork.crop} ${className}`.trim()}>
+    <div className={`artwork-media ${modeClass} ${className}`.trim()}>
       <img
         className="artwork-media-source"
         src={src}
