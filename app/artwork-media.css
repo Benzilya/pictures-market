@@ -15,6 +15,13 @@
   backface-visibility: hidden;
 }
 
+.direct-artwork .artwork-media-source {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .board-media-1 .artwork-media-source { width: 400%; height: 300%; object-fit: fill; }
 .board-media-2 .artwork-media-source { width: 200%; height: 500%; object-fit: fill; }
 
@@ -52,9 +59,7 @@
 }
 
 .artwork-media .status-pill,
-.artwork-media .view-label {
-  z-index: 2;
-}
+.artwork-media .view-label { z-index: 2; }
 
 .art-card .artwork-media,
 .archive-image.artwork-media,
