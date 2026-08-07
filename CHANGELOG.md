@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.9.0 — Artwork Quality Upgrade
+
+- Replaced CSS background cropping in the homepage, catalogue and artwork detail views with a reusable native-image media renderer.
+- Added board-specific native image positioning for both supplied artwork presentation boards.
+- Removed aggressive background-size hover zooming that caused visible pixelation and mosaic artifacts.
+- Connected `Respiro di luce` to its dedicated artwork asset instead of the shared presentation board.
+- Updated hero, featured works, full archive, catalogue filters, detail pages and related works to use the new renderer.
+- Added lazy decoding for catalogue imagery and eager loading for hero/detail media.
+- Kept catalogue metadata independent from media so dedicated high-resolution masters can be dropped in incrementally.
+
 ## v0.8.0 — Final QA + Launch
 
 - Added shared responsive navigation across homepage, catalogue and artwork pages.
