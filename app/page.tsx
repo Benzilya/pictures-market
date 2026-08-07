@@ -1,14 +1,14 @@
 import { artworks } from "../data/artworks";
 
-const featured = artworks.slice(0, 4);
+const featured = [artworks[0], artworks[12], artworks[16], artworks[3]];
 
 export default function HomePage() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="Iliano Babenchini home">
-          <span>ILIANO</span>
-          <span>BABENCHINI</span>
+        <a className="brand-lockup" href="#top" aria-label="Iliano Babenchini home">
+          <img className="brand-mark" src="/brand/iliano-babenchini-mark.svg" alt="" />
+          <span className="brand"><span>ILIANO</span><span>BABENCHINI</span></span>
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
           <a href="#collection">Collection</a>
@@ -32,7 +32,7 @@ export default function HomePage() {
             <a className="button button-ghost" href="#contact">Request a private selection</a>
           </div>
         </div>
-        <div className="hero-art real-art crop-c0-r0" role="img" aria-label="Respiro di luce by Iliano Babenchini">
+        <div className="hero-art real-art board-1 crop-c0-r0" role="img" aria-label="Respiro di luce by Iliano Babenchini">
           <div className="hero-caption">
             <span>Respiro di luce · 2023</span>
             <span>80 × 100 cm</span>
@@ -50,7 +50,7 @@ export default function HomePage() {
         <div className="art-grid">
           {featured.map((artwork, index) => (
             <article className={`art-card art-card-${index + 1}`} key={artwork.slug}>
-              <div className={`artwork-surface real-art ${artwork.crop}`}>
+              <div className={`artwork-surface real-art board-${artwork.board} ${artwork.crop}`}>
                 <span className="view-label">OPEN</span>
                 <span className="status-pill">{artwork.status}</span>
               </div>
@@ -69,7 +69,7 @@ export default function HomePage() {
       <section id="full-collection" className="archive section-pad">
         <div className="archive-heading">
           <div>
-            <p className="eyebrow">PRIVATE MUSEUM · 12 WORKS</p>
+            <p className="eyebrow">PRIVATE MUSEUM · {artworks.length} WORKS</p>
             <h2>The current collection.</h2>
           </div>
           <p>Human Presence · Italian Memory · Inner Landscapes</p>
@@ -77,7 +77,7 @@ export default function HomePage() {
         <div className="archive-grid">
           {artworks.map((artwork) => (
             <article className="archive-card" key={artwork.slug}>
-              <div className={`archive-image real-art ${artwork.crop}`}>
+              <div className={`archive-image real-art board-${artwork.board} ${artwork.crop}`}>
                 <span className="status-pill">{artwork.status}</span>
               </div>
               <div className="archive-meta">
@@ -91,12 +91,12 @@ export default function HomePage() {
             </article>
           ))}
         </div>
-        <p className="source-note">Artwork previews are temporarily cropped from the supplied studio presentation board. Individual high-resolution files will replace them during the media pass.</p>
+        <p className="source-note">Collection previews use the supplied studio presentation boards during the media pass. Individual high-resolution files will replace board crops as they become available.</p>
       </section>
 
       <section id="artist" className="artist section-pad">
         <div className="portrait-placeholder" aria-hidden="true">
-          <span>IB</span>
+          <img src="/brand/iliano-babenchini-mark.svg" alt="" />
         </div>
         <div className="artist-copy">
           <p className="eyebrow">THE ARTIST</p>
@@ -109,6 +109,18 @@ export default function HomePage() {
             “A painting should not fill an empty wall. It should change the atmosphere of the room.”
           </blockquote>
           <a className="text-link" href="#contact">Discover the studio →</a>
+        </div>
+      </section>
+
+      <section className="authenticity section-pad">
+        <div className="authenticity-copy">
+          <p className="eyebrow">AUTHENTICITY</p>
+          <h2>Every original leaves the studio with its identity documented.</h2>
+          <p>Each work is accompanied by a signed certificate recording title, year, medium, dimensions and a unique archive number.</p>
+          <a className="text-link" href="/brand/certificate-template.svg">View certificate →</a>
+        </div>
+        <div className="certificate-preview">
+          <img src="/brand/certificate-template.svg" alt="Certificate of authenticity template" />
         </div>
       </section>
 
@@ -135,9 +147,12 @@ export default function HomePage() {
       </section>
 
       <footer className="footer section-pad">
-        <div className="brand footer-brand"><span>ILIANO</span><span>BABENCHINI</span></div>
+        <div className="brand-lockup footer-brand">
+          <img className="brand-mark" src="/brand/iliano-babenchini-mark.svg" alt="" />
+          <span className="brand"><span>ILIANO</span><span>BABENCHINI</span></span>
+        </div>
         <p>Contemporary Art · Milano</p>
-        <p className="footer-note">Private Museum prototype · v0.4.0</p>
+        <p className="footer-note">Private Museum · v0.6.0</p>
       </footer>
     </main>
   );
