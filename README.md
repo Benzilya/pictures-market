@@ -84,7 +84,7 @@ The homepage currently includes:
 
 ## Artwork media
 
-The first collection uses the supplied presentation board. The second supplied collection is wired into the catalogue with its own board/crop system; its temporary board asset is ready to be replaced by the final extracted source image without changing catalogue code.
+Both supplied presentation boards are now integrated into the catalogue. Board crops are used as temporary web previews; individual high-resolution artwork files can replace them later without changing catalogue metadata or layout code.
 
 ## Brand assets
 
