@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./brand.css";
+import "./release.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://example.com"),
   title: "Iliano Babenchini — Contemporary Art from Milan",
   description:
     "Original paintings by Iliano Babenchini. Contemporary art from Milan for private interiors, collectors and design projects.",
