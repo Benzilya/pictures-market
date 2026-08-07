@@ -4,7 +4,7 @@ Premium multilingual portfolio and art-commerce website for contemporary artist 
 
 ## Status
 
-Release-candidate Next.js prototype with premium homepage, 22-work catalogue, dedicated artwork pages, filters, inquiry flow and brand identity.
+Final release-candidate Next.js build with premium homepage, 22-work catalogue, artwork detail pages, filters, inquiry flow, responsive navigation, IT/EN/RU entry pages and brand identity.
 
 ## Stack
 
@@ -21,6 +21,7 @@ Requirements: Node.js 20+ and npm.
 git clone https://github.com/Benzilya/pictures-market.git
 cd pictures-market
 npm install
+cp .env.example .env.local
 npm run dev
 ```
 
@@ -38,17 +39,7 @@ npm install
 npm run dev
 ```
 
-Then refresh http://localhost:3000
-
-If `git status` shows local changes that you do not want to lose, save them before pulling:
-
-```bash
-git add .
-git commit -m "local changes"
-git pull origin main
-```
-
-If the local copy is only for preview and you want it to exactly match GitHub, discard local changes first:
+If the local copy is only for preview and you want it to exactly match GitHub:
 
 ```bash
 git fetch origin
@@ -57,32 +48,49 @@ npm install
 npm run dev
 ```
 
-`git reset --hard` permanently deletes uncommitted local changes, so use it only for a disposable preview copy.
+`git reset --hard` permanently deletes uncommitted local changes.
 
-## Production build
+## Environment
+
+Copy `.env.example` to `.env.local` and set these values before production deployment:
+
+```env
+NEXT_PUBLIC_SITE_URL=https://your-domain.example
+NEXT_PUBLIC_STUDIO_EMAIL=studio@your-domain.example
+```
+
+Without `NEXT_PUBLIC_STUDIO_EMAIL`, the inquiry form stays in safe preview mode and copies the prepared inquiry instead of opening a fake email address.
+
+## Production verification
 
 ```bash
+npx tsc --noEmit
 npm run build
 npm start
 ```
 
+A GitHub Actions workflow also runs typecheck and production build on pushes to `main` and pull requests.
+
 ## Current routes
 
-- `/` — premium editorial homepage
+- `/` — English premium editorial homepage
+- `/it` — Italian localized homepage
+- `/ru` — Russian localized homepage
 - `/collection` — complete catalogue with series and availability filters
 - `/artwork/[slug]` — individual artwork pages with metadata, related works and inquiry flow
-- `/sitemap.xml` — generated artwork sitemap
-- `/robots.txt` — crawler configuration
+- `/sitemap.xml` — environment-aware generated sitemap
+- `/robots.txt` — environment-aware crawler configuration
 
 ## Current UI
 
 - premium sticky navigation with IB monogram
+- responsive mobile menu
+- IT / EN / RU language switcher
 - editorial hero section
 - selected works gallery
 - 22-work current collection
 - dedicated artwork detail pages
 - series and availability filtering
-- artwork titles, years, dimensions, series and pricing
 - artist statement section
 - authenticity / certificate section
 - designer/collector service section
@@ -94,7 +102,7 @@ npm start
 
 ## Artwork media
 
-Both supplied presentation boards are integrated into the catalogue. Board crops are used as temporary web previews; individual high-resolution artwork files can replace them later without changing catalogue metadata or layout code.
+Both supplied presentation boards are integrated into the catalogue. Board crops are temporary web previews; individual high-resolution artwork files can replace them later without changing catalogue metadata or layout code.
 
 ## Brand assets
 
@@ -104,7 +112,7 @@ Both supplied presentation boards are integrated into the catalogue. Board crops
 
 ## Before public launch
 
-Replace the placeholder studio email (`studio@example.com`) and the placeholder production origin (`https://example.com`) used for metadata, sitemap and robots configuration.
+Only external production details remain: set the real domain and studio contact in environment variables, then run the production build and deploy to Vercel or another Next.js-compatible host.
 
 ## Brand direction
 
