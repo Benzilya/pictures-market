@@ -4,7 +4,7 @@ Premium multilingual portfolio and art-commerce website for contemporary artist 
 
 ## Status
 
-Working Next.js prototype with a responsive premium homepage and the first real artwork catalogue pass.
+Working Next.js prototype with a responsive premium homepage, expanded artwork catalogue and first brand-identity pass.
 
 ## Stack
 
@@ -70,19 +70,27 @@ npm start
 
 The homepage currently includes:
 
-- premium sticky navigation
+- premium sticky navigation with IB monogram
 - editorial hero section
 - selected works gallery
-- 12-work current collection
+- 22-work current collection
 - artwork titles, years, dimensions, series and pricing
 - artist statement section
+- authenticity / certificate section
 - designer/collector service section
 - inquiry CTA
 - responsive mobile layout
+- favicon and expanded page metadata
 
 ## Artwork media
 
-The current artwork previews are cropped from the supplied presentation board and stored as `public/artworks/collection-board.jpg`. During the next media pass they will be replaced by individual high-resolution files for each painting.
+The first collection uses the supplied presentation board. The second supplied collection is wired into the catalogue with its own board/crop system; its temporary board asset is ready to be replaced by the final extracted source image without changing catalogue code.
+
+## Brand assets
+
+- `public/brand/iliano-babenchini-mark.svg` — IB monogram
+- `public/brand/certificate-template.svg` — certificate of authenticity
+- `app/icon.svg` — favicon/app icon
 
 ## Brand direction
 
