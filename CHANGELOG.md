@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.7.0 — Release Candidate
+
+- Added a dedicated `/collection` catalogue route.
+- Added client-side filters for series and availability.
+- Added static artwork routes for all 22 works at `/artwork/[slug]`.
+- Added artwork-specific metadata and JSON-LD `VisualArtwork` schema.
+- Added acquisition details, specifications, related works and inquiry flows.
+- Added a reusable inquiry form that prepares a pre-filled studio email.
+- Connected homepage cards, hero and archive items to artwork detail pages.
+- Added premium release-candidate responsive styles.
+- Added generated sitemap and robots metadata.
+- Added a premium not-found page.
+- Updated local-development and release documentation.
+
 ## v0.6.0 — Luxury Experience
 
 - Expanded the catalogue from 12 to 22 artworks.
