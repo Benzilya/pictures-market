@@ -1,9 +1,6 @@
-const featured = [
-  { title: "Respiro di luce", meta: "Oil on canvas · 120 × 90 cm", price: "€ 7,800", tone: "warm" },
-  { title: "Attesa", meta: "Oil on canvas · 100 × 80 cm", price: "€ 6,400", tone: "stone" },
-  { title: "Oltre il confine", meta: "Mixed media · 140 × 110 cm", price: "€ 11,800", tone: "deep" },
-  { title: "Mattino a Camogli", meta: "Oil on canvas · 90 × 120 cm", price: "€ 8,600", tone: "sea" },
-];
+import { artworks } from "../data/artworks";
+
+const featured = artworks.slice(0, 4);
 
 export default function HomePage() {
   return (
@@ -35,13 +32,10 @@ export default function HomePage() {
             <a className="button button-ghost" href="#contact">Request a private selection</a>
           </div>
         </div>
-        <div className="hero-art artwork-surface tone-deep" role="img" aria-label="Abstract artwork placeholder">
-          <div className="paint-stroke stroke-a" />
-          <div className="paint-stroke stroke-b" />
-          <div className="paint-stroke stroke-c" />
+        <div className="hero-art real-art crop-c0-r0" role="img" aria-label="Respiro di luce by Iliano Babenchini">
           <div className="hero-caption">
-            <span>Private Museum</span>
-            <span>Milan · 2026</span>
+            <span>Respiro di luce · 2023</span>
+            <span>80 × 100 cm</span>
           </div>
         </div>
       </section>
@@ -50,28 +44,54 @@ export default function HomePage() {
         <div className="section-heading">
           <p className="eyebrow">SELECTED WORKS</p>
           <h2>Original works, presented with room to breathe.</h2>
-          <a href="#contact">View all works →</a>
+          <a href="#full-collection">View all works →</a>
         </div>
 
         <div className="art-grid">
           {featured.map((artwork, index) => (
-            <article className={`art-card art-card-${index + 1}`} key={artwork.title}>
-              <div className={`artwork-surface tone-${artwork.tone}`}>
-                <div className="paint-stroke stroke-a" />
-                <div className="paint-stroke stroke-b" />
-                <div className="paint-stroke stroke-c" />
+            <article className={`art-card art-card-${index + 1}`} key={artwork.slug}>
+              <div className={`artwork-surface real-art ${artwork.crop}`}>
                 <span className="view-label">OPEN</span>
+                <span className="status-pill">{artwork.status}</span>
               </div>
               <div className="art-meta">
                 <div>
                   <h3>{artwork.title}</h3>
-                  <p>{artwork.meta}</p>
+                  <p>{artwork.year} · {artwork.medium} · {artwork.dimensions}</p>
                 </div>
                 <p className="price">{artwork.price}</p>
               </div>
             </article>
           ))}
         </div>
+      </section>
+
+      <section id="full-collection" className="archive section-pad">
+        <div className="archive-heading">
+          <div>
+            <p className="eyebrow">PRIVATE MUSEUM · 12 WORKS</p>
+            <h2>The current collection.</h2>
+          </div>
+          <p>Human Presence · Italian Memory · Inner Landscapes</p>
+        </div>
+        <div className="archive-grid">
+          {artworks.map((artwork) => (
+            <article className="archive-card" key={artwork.slug}>
+              <div className={`archive-image real-art ${artwork.crop}`}>
+                <span className="status-pill">{artwork.status}</span>
+              </div>
+              <div className="archive-meta">
+                <div>
+                  <h3>{artwork.title}</h3>
+                  <p>{artwork.year} · {artwork.medium}</p>
+                  <p>{artwork.dimensions} · {artwork.series}</p>
+                </div>
+                <strong>{artwork.price}</strong>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p className="source-note">Artwork previews are temporarily cropped from the supplied studio presentation board. Individual high-resolution files will replace them during the media pass.</p>
       </section>
 
       <section id="artist" className="artist section-pad">
@@ -117,7 +137,7 @@ export default function HomePage() {
       <footer className="footer section-pad">
         <div className="brand footer-brand"><span>ILIANO</span><span>BABENCHINI</span></div>
         <p>Contemporary Art · Milano</p>
-        <p className="footer-note">Private Museum prototype · v0.3.0</p>
+        <p className="footer-note">Private Museum prototype · v0.4.0</p>
       </footer>
     </main>
   );
