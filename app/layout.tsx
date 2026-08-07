@@ -1,10 +1,25 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./brand.css";
 
 export const metadata: Metadata = {
   title: "Iliano Babenchini — Contemporary Art from Milan",
   description:
-    "Original paintings by Iliano Babenchini. Contemporary art from Milan for private interiors and collections.",
+    "Original paintings by Iliano Babenchini. Contemporary art from Milan for private interiors, collectors and design projects.",
+  applicationName: "Iliano Babenchini — Private Museum",
+  keywords: [
+    "Iliano Babenchini",
+    "contemporary artist Milan",
+    "original paintings",
+    "Italian contemporary art",
+    "art for interiors",
+  ],
+  openGraph: {
+    title: "Iliano Babenchini — Contemporary Art from Milan",
+    description: "Original paintings for private interiors and collections.",
+    type: "website",
+    locale: "en_US",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
